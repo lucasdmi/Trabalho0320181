@@ -1,7 +1,13 @@
 package pooa20181.iff.edu.br.trabalho0320181.model;
 
-public class Oficina {
+import java.io.Serializable;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class Oficina extends RealmObject implements Serializable{
+
+    @PrimaryKey
     private int id;
     private String nome;
     private String rua;
