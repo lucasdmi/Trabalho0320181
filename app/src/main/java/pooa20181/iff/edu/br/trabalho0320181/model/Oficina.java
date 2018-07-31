@@ -7,16 +7,15 @@ public class Oficina {
     private String rua;
     private String bairro;
     private String municipio;
-    private String latitude;
-
-    private String longitude;
+    private Double latitude;
+    private Double longitude;
 
 
     public Oficina(){
 
     }
 
-    public Oficina(int id, String nome, String rua, String bairro, String municipio, String latitude, String longitude){
+    public Oficina(int id, String nome, String rua, String bairro, String municipio, Double latitude, Double longitude){
 
         this.id = id;
         this.nome = nome;
@@ -67,21 +66,22 @@ public class Oficina {
         this.municipio = municipio;
     }
 
-    public String getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public String getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
+
 
 }
 
