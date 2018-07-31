@@ -2,5 +2,13 @@
     <string name="app_name">Trabalho0320181</string>
     <string name="tnome">Nome:</string>
     <string name="trua">Rua:</string>
+    <string name="tbairro">Bairro:</string>
+    <string name="buttonbuscar">Buscar</string>
+    <string name="tmunicipio">Município</string>
+    <string name="tlatitude">Latitude</string>
+    <string name="tlongitude">Longitude</string>
+    <string name="buttonadd">Adicionar</string>
+    <string name="buttonalterar">Alterar</string>
+    <string name="buttondelete">Excluir</string>
     <string name="title_activity_lista_oficina">ListaOficina</string>
 </resources>
