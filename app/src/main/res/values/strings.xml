@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Trabalho0320181</string>
+    <string name="tnome">Nome:</string>
+    <string name="trua">Rua:</string>
 </resources>

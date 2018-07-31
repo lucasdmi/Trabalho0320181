@@ -12,7 +12,7 @@ import pooa20181.iff.edu.br.trabalho0320181.R;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
-    private String[] activities = {"ListaOficinaActivity", "ListaMecanicoActivity"};
+    private String[] activities = {"ListaOficina", "ListaMecanico"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
