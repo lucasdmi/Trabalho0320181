@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:name=".model.DBconfig"
         android:allowBackup="true"
@@ -22,6 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.ListaOficina"
+            android:label="@string/title_activity_lista_oficina"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
