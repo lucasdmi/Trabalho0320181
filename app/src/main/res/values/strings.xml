@@ -14,5 +14,8 @@
     <string name="buttondelete">Excluir</string>
     <string name="title_activity_lista_oficina">Lista de Oficinas</string>
     <string name="title_activity_oficina_detalhe">Cadastro de Oficina</string>
-    <string name="title_activity_lista_mecanico">ListaMecanico</string>
+    <string name="title_activity_lista_mecanico">Lista de Mecanicos</string>
+    <string name="title_activity_mecanico_detalhe">Cadastro de Mecanico</string>
+
+    <string name="tdata">Data:</string>
 </resources>
