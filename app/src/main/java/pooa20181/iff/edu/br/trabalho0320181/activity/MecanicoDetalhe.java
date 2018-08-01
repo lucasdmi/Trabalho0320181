@@ -28,10 +28,11 @@ import java.util.List;
 import io.realm.Realm;
 import pooa20181.iff.edu.br.trabalho0320181.R;
 import pooa20181.iff.edu.br.trabalho0320181.model.Mecanico;
+import pooa20181.iff.edu.br.trabalho0320181.util.PermissionUtils;
 
 public class MecanicoDetalhe extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
-    EditText edtNome, edtFuncao, edtData, edtRua, edtBairro, edtMunicipio, edtLongitude, edtLatitude;
+    EditText etNome, etFuncao, etData, etRua, etBairro, etMunicipio, etLongitude, etLatitude;
     Button btBuscar, btAdicionar, btAlterar, btExcluir;
 
     SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -55,14 +56,14 @@ public class MecanicoDetalhe extends AppCompatActivity implements GoogleApiClien
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mecanico_detalhe);
 
-        edtNome = (EditText) findViewById(R.id.etNome);
-        edtFuncao = (EditText) findViewById(R.id.etFuncao);
-        edtData = (EditText) findViewById(R.id.etData);
-        edtRua = (EditText) findViewById(R.id.etRua);
-        edtBairro = (EditText) findViewById(R.id.etBairro);
-        edtMunicipio = (EditText) findViewById(R.id.etMunicipio);
-        edtLongitude = (EditText)findViewById(R.id.etLongitude);
-        edtLatitude = (EditText) findViewById(R.id.etLatitude);
+        etNome = (EditText) findViewById(R.id.etNome);
+        etFuncao = (EditText) findViewById(R.id.etFuncao);
+        etData = (EditText) findViewById(R.id.etData);
+        etRua = (EditText) findViewById(R.id.etRua);
+        etBairro = (EditText) findViewById(R.id.etBairro);
+        etMunicipio = (EditText) findViewById(R.id.etMunicipio);
+        etLongitude = (EditText)findViewById(R.id.etLongitude);
+        etLatitude = (EditText) findViewById(R.id.etLatitude);
 
         btBuscar = findViewById(R.id.btBuscar);
         btAdicionar = findViewById(R.id.btAdicionar);
@@ -81,14 +82,14 @@ public class MecanicoDetalhe extends AppCompatActivity implements GoogleApiClien
 
             mecanico = realm.where(Mecanico.class).equalTo("id", id).findFirst();
 
-            edtNome.setText(mecanico.getNome());
-            edtFuncao.setText(mecanico.getFuncao());
-            edtData.setText(formato.format(mecanico.getDataNascimento()));
-            edtRua.setText(mecanico.getRua());
-            edtBairro.setText(mecanico.getBairro());
-            edtMunicipio.setText(mecanico.getMunicipio());
-            edtLatitude.setText(mecanico.getLatitude());
-            edtLongitude.setText(mecanico.getLongitude());
+            etNome.setText(mecanico.getNome());
+            etFuncao.setText(mecanico.getFuncao());
+            etData.setText(formato.format(mecanico.getDataNascimento()));
+            etRua.setText(mecanico.getRua());
+            etBairro.setText(mecanico.getBairro());
+            etMunicipio.setText(mecanico.getMunicipio());
+            etLatitude.setText(mecanico.getLatitude());
+            etLongitude.setText(mecanico.getLongitude());
         }
         else
         {
@@ -99,6 +100,38 @@ public class MecanicoDetalhe extends AppCompatActivity implements GoogleApiClien
             btExcluir.setClickable(false);
             btExcluir.setVisibility(View.INVISIBLE);
         }
+
+        btBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buscar();
+            }
+        });
+
+        btAdicionar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                salvar();
+            }
+        });
+
+        btAlterar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alterar();
+            }
+        });
+
+        btExcluir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                excluir();
+            }
+        });
+
+        callConnection();
+        PermissionUtils.validate(this,0, permissoes);
+        googleApiClient.connect();
     }
 
 
@@ -145,22 +178,22 @@ public class MecanicoDetalhe extends AppCompatActivity implements GoogleApiClien
         this.finish();
     }
 
-    public void setarEgravar(Mecanico Mecanico)
+    public void setarEgravar(Mecanico mecanico)
     {
-        mecanico.setNome(edtBairro.getText().toString());
-        mecanico.setFuncao(edtFuncao.getText().toString());
+        mecanico.setNome(etNome.getText().toString());
+        mecanico.setFuncao(etFuncao.getText().toString());
 
         try {
-            mecanico.setDataNascimento((Date) formato.parse(edtData.getText().toString()));
+            mecanico.setDataNascimento((Date) formato.parse(etData.getText().toString()));
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        mecanico.setRua(edtRua.getText().toString());
-        mecanico.setBairro(edtBairro.getText().toString());
-        mecanico.setMunicipio(edtMunicipio.getText().toString());
-        mecanico.setLatitude(edtLatitude.getText().toString());
-        mecanico.setLongitude(edtLongitude.getText().toString());
+        mecanico.setRua(etRua.getText().toString());
+        mecanico.setBairro(etBairro.getText().toString());
+        mecanico.setMunicipio(etMunicipio.getText().toString());
+        mecanico.setLatitude(etLatitude.getText().toString());
+        mecanico.setLongitude(etLongitude.getText().toString());
     }
 
 
@@ -179,12 +212,12 @@ public class MecanicoDetalhe extends AppCompatActivity implements GoogleApiClien
         double longitude, latitude;
 
 
-        if(edtRua.getText() == null)
+        if(etRua.getText() == null)
         {
             Toast.makeText(this,"Preencha o campo Rua, por favor.", Toast.LENGTH_LONG).show();
         }
 
-        String rua = edtRua.getText().toString();
+        String rua = etRua.getText().toString();
         Log.i("LOG", "Buscando");
 
         String resultAddres = "";
@@ -201,13 +234,13 @@ public class MecanicoDetalhe extends AppCompatActivity implements GoogleApiClien
             Log.i("Log","Result Addres: " + resultAddres );
 
 
-            edtMunicipio.setText(endereco.getSubAdminArea());
-            edtBairro.setText(endereco.getSubLocality());
+            etMunicipio.setText(endereco.getSubAdminArea());
+            etBairro.setText(endereco.getSubLocality());
             latitude = endereco.getLatitude();
             longitude = endereco.getLongitude();
 
-            edtLatitude.setText((Double.toString(latitude)));
-            edtLongitude.setText( Double.toString(longitude));
+            etLatitude.setText((Double.toString(latitude)));
+            etLongitude.setText( Double.toString(longitude));
 
         } catch (IOException e) {
             e.printStackTrace();

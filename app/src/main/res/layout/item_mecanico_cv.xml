@@ -1,69 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="384dp"
-    android:layout_height="115dp"
-    tools:layout_editor_absoluteX="8dp"
-    tools:layout_editor_absoluteY="164dp">
+    android:layout_width="match_parent"
+    android:layout_height="120dp">
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="379dp"
-        android:layout_height="match_parent">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <TextView
+            android:id="@+id/textViewNome"
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/tnome"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvNome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="28dp"
-            android:text="@string/tnome"
-            android:textColor="@android:color/black"
+            android:layout_width="213dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
             android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/etNome"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewNome"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewFuncao"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/tfuncao"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewNome"
+            app:layout_constraintVertical_bias="0.111" />
 
         <TextView
             android:id="@+id/tvFuncao"
-            android:layout_width="36dp"
-            android:layout_height="21dp"
-            android:layout_marginTop="28dp"
-            android:fontFamily="sans-serif"
-            android:lineSpacingExtra="8sp"
-            android:text="@string/trua"
-            android:textColor="@android:color/background_dark"
+            android:layout_width="214dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:text="TextView"
             android:textSize="18sp"
-            android:typeface="normal"
-            app:layout_constraintEnd_toStartOf="@+id/etRua"
-            app:layout_constraintHorizontal_bias="0.75"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etNome" />
-
-        <TextView
-            android:id="@+id/etNome"
-            android:layout_width="280dp"
-            android:layout_height="29dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="28dp"
-            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/etFuncao"
-            android:layout_width="295dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="20dp"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etNome" />
-
+            app:layout_constraintHorizontal_bias="0.44"
+            app:layout_constraintStart_toEndOf="@+id/textViewFuncao"
+            app:layout_constraintTop_toBottomOf="@+id/tvNome" />
 
     </android.support.constraint.ConstraintLayout>
 </android.support.v7.widget.CardView>
