@@ -1,5 +1,6 @@
 package pooa20181.iff.edu.br.trabalho0320181.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -34,8 +35,9 @@ public class ListaOficina extends AppCompatActivity implements ClickRecyclerView
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(ListaOficina.this, OficinaDetalhe.class);
+                intent.putExtra("id", 0);
+                startActivity(intent);
             }
         });
     }
@@ -55,6 +57,9 @@ public class ListaOficina extends AppCompatActivity implements ClickRecyclerView
     @Override
     public void onClick(Object object) {
        Oficina oficina = (Oficina) object;
+       Intent intent = new Intent(ListaOficina.this, OficinaDetalhe.class);
+       intent.putExtra("id", oficina.getId());
+       startActivity(intent);
     }
 
     public void finish(){
