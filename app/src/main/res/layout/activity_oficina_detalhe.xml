@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:text="@string/tmunicipio"
             app:layout_column="0"
-            app:layout_row="5" />
+            app:layout_row="4" />
 
         <EditText
             android:id="@+id/edtMunicipio"
@@ -69,41 +69,25 @@
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_column="1"
-            app:layout_row="5" />
+            app:layout_row="4" />
 
         <TextView
             android:id="@+id/tlatitude"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tlatitude"
+            android:inputType="textPersonName"
             app:layout_column="0"
-            app:layout_row="6" />
+            app:layout_row="5" />
 
         <TextView
             android:id="@+id/tlongitude"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tlongitude"
+            android:inputType="textPersonName"
             app:layout_column="0"
-            app:layout_row="7" />
-
-        <EditText
-            android:id="@+id/edtLatitude"
-            android:layout_width="272dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            app:layout_column="1"
             app:layout_row="6" />
-
-        <EditText
-            android:id="@+id/edtLongitude"
-            android:layout_width="272dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            app:layout_column="1"
-            app:layout_row="7" />
 
         <TextView
             android:id="@+id/tBairro"
@@ -111,7 +95,7 @@
             android:layout_height="wrap_content"
             android:text="@string/tbairro"
             app:layout_column="0"
-            app:layout_row="4" />
+            app:layout_row="3" />
 
         <EditText
             android:id="@+id/edtBairro"
@@ -120,7 +104,25 @@
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_column="1"
-            app:layout_row="4" />
+            app:layout_row="3" />
+
+        <EditText
+            android:id="@+id/edtLongitude"
+            android:layout_width="267dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_column="1"
+            app:layout_row="5" />
+
+        <EditText
+            android:id="@+id/edtLatitude"
+            android:layout_width="268dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_column="1"
+            app:layout_row="6" />
 
     </android.support.v7.widget.GridLayout>
 

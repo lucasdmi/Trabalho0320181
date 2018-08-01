@@ -91,6 +91,8 @@ public class OficinaDetalhe extends AppCompatActivity implements GoogleApiClient
     public void buscar()
     {
         int i, tam;
+        double longitude, latitude;
+
 
         if(edtRua.getText() == null)
         {
@@ -111,11 +113,19 @@ public class OficinaDetalhe extends AppCompatActivity implements GoogleApiClient
                 resultAddres += i < tam - 1 ? ", " : "";
                 Log.i("Log","Result Addres: " + resultAddres );
             }
+            Log.i("Log","Result Addres: " + resultAddres );
 
-            edtMunicipio.setText(endereco.getLocality());
+
+            edtMunicipio.setText(endereco.getSubAdminArea());
             edtBairro.setText(endereco.getSubLocality());
-            edtLongitude.setText((int) endereco.getLongitude());
-            edtLatitude.setText((int) endereco.getLatitude());
+            Log.i("Log","Municipio: " + endereco.getSubAdminArea() );
+            Log.i("Log","Bairro: " + endereco.getSubLocality() );
+            Log.i("Log","Longitude: " + endereco.getLongitude() );
+            Log.i("Log","Latitude: " + endereco.getLatitude() );
+            latitude = endereco.getLatitude();
+            longitude = endereco.getLongitude();
+            edtLongitude.setText( Double.toString(longitude));
+            edtLatitude.setText((Double.toString(latitude)));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -134,7 +144,8 @@ public class OficinaDetalhe extends AppCompatActivity implements GoogleApiClient
 
         if(enderecos.size() > 0)
         {
-            Log.i("LOG", "Endereços" +String.valueOf(enderecos.size()));
+            Log.i("LOG", "Endereços: " +String.valueOf(enderecos.size()));
+            Log.i("LOG", "Endereço completo: " + enderecos.get(0));
         }
 
         endereco = enderecos.get(0);
