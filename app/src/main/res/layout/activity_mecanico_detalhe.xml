@@ -152,7 +152,7 @@
             app:layout_row="8" />
 
         <EditText
-            android:id="@+id/editText11"
+            android:id="@+id/etData"
             android:layout_width="293dp"
             android:layout_height="wrap_content"
             android:ems="10"

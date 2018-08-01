@@ -1,6 +1,7 @@
 package pooa20181.iff.edu.br.trabalho0320181.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import io.realm.RealmObject;
 
@@ -64,7 +65,7 @@ public class Mecanico extends RealmObject implements Serializable {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

@@ -51,12 +51,12 @@ public class OficinaDetalhe extends AppCompatActivity implements GoogleApiClient
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_oficina_detalhe);
 
-        edtNome = findViewById(R.id.edtNome);
-        edtRua = findViewById(R.id.edtRua);
-        edtBairro = findViewById(R.id.edtBairro);
-        edtMunicipio = findViewById(R.id.edtMunicipio);
-        edtLongitude = findViewById(R.id.edtLongitude);
-        edtLatitude = findViewById(R.id.edtLatitude);
+        edtNome = (EditText) findViewById(R.id.edtNome);
+        edtRua = (EditText) findViewById(R.id.edtRua);
+        edtBairro = (EditText) findViewById(R.id.edtBairro);
+        edtMunicipio = (EditText) findViewById(R.id.edtMunicipio);
+        edtLongitude = (EditText) findViewById(R.id.edtLongitude);
+        edtLatitude = (EditText) findViewById(R.id.edtLatitude);
 
         btnBuscar = findViewById(R.id.btnBuscar);
         btnAdicionar = findViewById(R.id.badicionar);
