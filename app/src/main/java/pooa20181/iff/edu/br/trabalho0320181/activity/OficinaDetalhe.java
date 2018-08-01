@@ -66,6 +66,32 @@ public class OficinaDetalhe extends AppCompatActivity implements GoogleApiClient
         Intent intent = getIntent();
         id = (int) intent.getSerializableExtra("id");
         realm = Realm.getDefaultInstance();
+
+        //carregar o objeto e seus respectivos atributos do realm
+
+        if(id != 0)
+        {
+            btnAdicionar.setEnabled(false);
+            btnAdicionar.setClickable(false);
+            btnAdicionar.setVisibility(View.INVISIBLE);
+
+            oficina = realm.where(Oficina.class).equalTo("id", id).findFirst();
+
+            edtNome.setText(oficina.getNome());
+            edtRua.setText(oficina.getRua());
+            edtBairro.setText(oficina.getBairro());
+            edtMunicipio.setText(oficina.getMunicipio());
+            edtLatitude.setText(oficina.getLatitude());
+            edtLongitude.setText(oficina.getLongitude());
+
+        }else {
+            btnAlterar.setEnabled(false);
+            btnAlterar.setClickable(false);
+            btnAlterar.setVisibility(View.INVISIBLE);
+            btnExcluir.setEnabled(false);
+            btnExcluir.setClickable(false);
+            btnExcluir.setVisibility(View.INVISIBLE);
+        }
         
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,11 +99,91 @@ public class OficinaDetalhe extends AppCompatActivity implements GoogleApiClient
                 buscar();
             }
         });
+
+        btnAdicionar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                salvar();
+            }
+        });
+
+        btnAlterar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alterar();
+            }
+        });
+
+        btnExcluir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                excluir();
+            }
+        });
         
         callConnection();
         PermissionUtils.validate(this,0, permissoes);
         googleApiClient.connect();
     }
+
+    public void excluir(){
+        realm.beginTransaction();
+        oficina.deleteFromRealm();
+        realm.commitTransaction();
+        realm.close();
+        Toast.makeText(this,"Oficina Excluido", Toast.LENGTH_LONG).show();
+        this.finish();
+    }
+    public void salvar()
+    {
+        int proximoID = 1;
+        if(realm.where(Oficina.class).max("id") != null)
+        {
+            proximoID = realm.where(Oficina.class).max("id").intValue() + 1;
+        }
+
+        realm.beginTransaction();
+        Oficina oficina = new Oficina();
+        oficina.setId(proximoID);
+
+        setarEgravar(oficina);
+
+        realm.copyToRealm(oficina);
+        realm.commitTransaction();
+        realm.close();
+
+        Toast.makeText(this, "Cadastro Efetuado com sucesso", Toast.LENGTH_LONG).show();
+        this.finish();
+    }
+    public void alterar(){
+
+        realm.beginTransaction();
+        setarEgravar(oficina);
+        realm.copyFromRealm(oficina);
+        realm.commitTransaction();
+        realm.close();
+
+        Toast.makeText(this, "Oficina alterada", Toast.LENGTH_LONG).show();
+        this.finish();
+    }
+
+    public void setarEgravar(Oficina oficina)
+    {
+        oficina.setNome(edtNome.getText().toString());
+        oficina.setRua(edtRua.getText().toString());
+        oficina.setBairro(edtBairro.getText().toString());
+        oficina.setMunicipio(edtMunicipio.getText().toString());
+        oficina.setLatitude(edtLatitude.getText().toString());
+        oficina.setLongitude(edtLongitude.getText().toString());
+    }
+
+
+
+
+
+
+
+
 
     private synchronized void callConnection() {
         Log.i("LOG", "callConnection()");
@@ -96,7 +202,7 @@ public class OficinaDetalhe extends AppCompatActivity implements GoogleApiClient
 
         if(edtRua.getText() == null)
         {
-            Toast.makeText(this,"Preencha o campo Rua, por favor.", Toast.LENGTH_LONG);
+            Toast.makeText(this,"Preencha o campo Rua, por favor.", Toast.LENGTH_LONG).show();
         }
 
         String rua = edtRua.getText().toString();
@@ -122,10 +228,12 @@ public class OficinaDetalhe extends AppCompatActivity implements GoogleApiClient
             Log.i("Log","Bairro: " + endereco.getSubLocality() );
             Log.i("Log","Longitude: " + endereco.getLongitude() );
             Log.i("Log","Latitude: " + endereco.getLatitude() );
+
             latitude = endereco.getLatitude();
             longitude = endereco.getLongitude();
-            edtLongitude.setText( Double.toString(longitude));
+
             edtLatitude.setText((Double.toString(latitude)));
+            edtLongitude.setText( Double.toString(longitude));
 
         } catch (IOException e) {
             e.printStackTrace();

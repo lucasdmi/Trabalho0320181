@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Trabalho0320181</string>
+    <string name="app_name">Trabalho03-2018-1</string>
     <string name="tnome">Nome:</string>
     <string name="trua">Rua:</string>
     <string name="tbairro">Bairro:</string>
@@ -11,4 +11,5 @@
     <string name="buttonalterar">Alterar</string>
     <string name="buttondelete">Excluir</string>
     <string name="title_activity_lista_oficina">ListaOficina</string>
+    <string name="title_activity_oficina_detalhe">Cadastro de Oficina</string>
 </resources>
