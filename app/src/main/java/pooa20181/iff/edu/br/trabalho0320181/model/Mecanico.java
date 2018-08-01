@@ -1,6 +1,10 @@
 package pooa20181.iff.edu.br.trabalho0320181.model;
 
-public class Mecanico {
+import java.io.Serializable;
+
+import io.realm.RealmObject;
+
+public class Mecanico extends RealmObject implements Serializable {
 
     private int id;
 
