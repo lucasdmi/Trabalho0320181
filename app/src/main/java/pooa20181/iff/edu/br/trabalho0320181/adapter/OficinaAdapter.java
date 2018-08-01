@@ -65,8 +65,8 @@ public class OficinaAdapter extends RecyclerView.Adapter{
 
         public OficinaViewHolder(View itemView) {
             super(itemView);
-            nome = itemView.findViewById(R.id.tvNome);
-            rua = itemView.findViewById(R.id.tvRua);
+            nome = itemView.findViewById(R.id.etNome);
+            rua = itemView.findViewById(R.id.etRua);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -4,15 +4,16 @@ public class Mecanico {
 
     private int id;
 
-    private String nome,
-            funcao,
-            dataNascimento,
-            rua,
-            bairro,
-            municipio;
+    private String nome;
+    private String funcao;
+    private String dataNascimento;
+    private String rua;
+    private String bairro;
+    private String municipio;
+    private String latitude;
+    private String longitude;
 
-    private Double latitude,
-            longitude;
+
 
     public Mecanico(){
 
@@ -86,20 +87,21 @@ public class Mecanico {
     public void setMunicipio(String municipio) {
         this.municipio = municipio;
     }
-
-    public Double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public Double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
+
+
 }
