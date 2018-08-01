@@ -11,7 +11,11 @@ public class Mecanico extends RealmObject implements Serializable {
 
     private String nome;
     private String funcao;
-    private String dataNascimento;
+
+
+
+    private Date dataNascimento;
+
     private String rua;
     private String bairro;
     private String municipio;
@@ -19,12 +23,11 @@ public class Mecanico extends RealmObject implements Serializable {
     private String longitude;
 
 
-
     public Mecanico(){
 
     }
 
-    public Mecanico(int id, String nome, String funcao, String dataNascimento, String rua, String bairro, String municipio)
+    public Mecanico(int id, String nome, String funcao, Date dataNascimento, String rua, String bairro, String municipio)
     {
         this.id = id;
         this.nome = nome;
@@ -61,14 +64,13 @@ public class Mecanico extends RealmObject implements Serializable {
         this.funcao = funcao;
     }
 
-    public String getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
-
     public String getRua() {
         return rua;
     }
