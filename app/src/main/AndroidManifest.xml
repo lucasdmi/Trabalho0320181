@@ -30,9 +30,13 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".activity.OficinaDetalhe"
-            android:label="@string/title_activity_oficina_detalhe"/>
-
+        <activity
+            android:name=".activity.OficinaDetalhe"
+            android:label="@string/title_activity_oficina_detalhe" />
+        <activity
+            android:name=".activity.ListaMecanico"
+            android:label="@string/title_activity_lista_mecanico"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
